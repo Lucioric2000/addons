@@ -1,0 +1,3 @@
+#docker run -e USER="$(id -u)" -u="$(id -u)"
+docker run --entrypoint=/usr/bin/bazel -v /media/usb/questionbot-aviano-af-covid19/addons:/tmp/taddons -v /tmp/build_output:/tmp/build_output -v /home/jcox/.local:/home/jcox/.local -w /tmp/taddons anupcshan/bazel-arm32v7:0.27.1 build --enable_runfiles build_pip_pkg
+docker run --entrypoint=/bin/bash -it -v /media/usb/questionbot-aviano-af-covid19/addons:/tmp/taddons -v /tmp/build_output:/tmp/build_output -v /home/jcox/.local:/home/jcox/.local -w /tmp/taddons anupcshan/bazel-arm32v7:0.27.1 -c "/usr/bin/bazel build --enable_runfiles build_pip_pkg; bazel-bin/build_pip_pkg artifacts"

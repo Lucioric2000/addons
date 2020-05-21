@@ -15,7 +15,7 @@ def check_dependencies(requirement_file_name):
     """
     dependencies = []
     for req in parse_requirements(requirement_file_name, session=False):
-        dependencies.append(str(req.req))
+        dependencies.append(str(req.requirement))
     try:
         pkg_resources.working_set.require(dependencies)
     except VersionConflict as e:
